@@ -1,15 +1,13 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 
 
 def brain_codepoint():
     req = requests.get(
-        "https://unicode.org/emoji/charts/full-emoji-list.html")
+        "https://www.unicode.org/Public/emoji/16.0/emoji-test.txt",)
     src = req.text
-    soup = BeautifulSoup(src, "lxml")
-
-    codepoint = soup.find("td", class_="code").find("a").text
+    for line in src.split("\n"):
+        if "🧠" in line:
+            codepoint = line.split()[0]
+            break
     return codepoint
-
-
-print(brain_codepoint())

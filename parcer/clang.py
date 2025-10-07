@@ -10,8 +10,7 @@ def c_isbn():
 
     soup = BeautifulSoup(src, "lxml")
 
-    data = soup.find("div", class_="css-ge5d1n").find("span",
-                                                      class_="MuiTypography-root MuiTypography-textBody css-1dv4x0j").text.split()
-    isbn = data[1]
+    isbn = soup.find(
+        "div", id="sbo-rt-content").find("code").text.split("ISBN")[-1].split()[0].replace("-", "")
 
     return isbn
