@@ -1,9 +1,9 @@
 import hashlib
-from brain import brain_codepoint
-from btc import date_btc
-from clang import c_isbn
-from rfc import rfc_date
-from voyager import voyager_date
+from src.brain import brain_codepoint
+from src.btc import date_btc
+from src.clang import c_isbn
+from src.rfc import rfc_date
+from src.voyager import voyager_date
 
 
 def main():

@@ -1,9 +1,9 @@
 import re
-from voyager import voyager_date
-from rfc import rfc_date
-from brain import brain_codepoint
-from btc import date_btc
-from clang import c_isbn
+from src.voyager import voyager_date
+from src.rfc import rfc_date
+from src.brain import brain_codepoint
+from src.btc import date_btc
+from src.clang import c_isbn
 
 
 def test_voyager():
@@ -46,4 +46,14 @@ def test_isbn():
     print(f"ISBN: {result}")
 
 
-test_voyager(), test_rfc(), test_brain(), test_btc(), test_isbn()
+if __name__ == '__main__':
+
+    try:
+        test_voyager()
+        test_rfc()
+        test_brain()
+        test_btc()
+        test_isbn()
+        print("\nВсе тесты пройдены")
+    except AssertionError as e:
+        print(f"\nОшибка: {e}")
